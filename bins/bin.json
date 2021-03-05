@@ -6,12 +6,6 @@
     "shortUrl": 1
   },
   {
-    "creationDate": 1614952066660,
-    "redirectCount": 0,
-    "originalUrl": "https://faceebook.com",
-    "shortUrl": 2
-  },
-  {
     "creationDate": 1614952070479,
     "redirectCount": 0,
     "originalUrl": "https://www.youtube.com/watch?v=SLpUKAGnm-g&ab_channel=TraversyMedia",
@@ -28,5 +22,35 @@
     "redirectCount": 0,
     "originalUrl": "https://facebook.com",
     "shortUrl": 5
+  },
+  {
+    "creationDate": 1614974598744,
+    "redirectCount": 0,
+    "originalUrl": "https://amazon.com",
+    "shortUrl": 6
+  },
+  {
+    "creationDate": 1614974625686,
+    "redirectCount": 0,
+    "originalUrl": "https://yahoo.com",
+    "shortUrl": 7
+  },
+  {
+    "creationDate": 1614976203948,
+    "redirectCount": 0,
+    "originalUrl": "https://youtube.com",
+    "shortUrl": 8
+  },
+  {
+    "creationDate": 1614976350505,
+    "redirectCount": 0,
+    "originalUrl": "https://www.freecodecamp.org/",
+    "shortUrl": 9
+  },
+  {
+    "creationDate": 1614978736670,
+    "redirectCount": 0,
+    "originalUrl": "https://url-shortener-microservice.freecodecamp.rocks/api/shorturl/new",
+    "shortUrl": 10
   }
 ]
