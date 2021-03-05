@@ -1,0 +1,32 @@
+[
+  {
+    "creationDate": 1614951031134,
+    "redirectCount": 0,
+    "originalUrl": "https://facebook.com/1",
+    "shortUrl": 1
+  },
+  {
+    "creationDate": 1614952066660,
+    "redirectCount": 0,
+    "originalUrl": "https://faceebook.com",
+    "shortUrl": 2
+  },
+  {
+    "creationDate": 1614952070479,
+    "redirectCount": 0,
+    "originalUrl": "https://www.youtube.com/watch?v=SLpUKAGnm-g&ab_channel=TraversyMedia",
+    "shortUrl": 3
+  },
+  {
+    "creationDate": 1614952444742,
+    "redirectCount": 0,
+    "originalUrl": "https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode",
+    "shortUrl": 4
+  },
+  {
+    "creationDate": 1614955733295,
+    "redirectCount": 0,
+    "originalUrl": "https://facebook.com",
+    "shortUrl": 5
+  }
+]
