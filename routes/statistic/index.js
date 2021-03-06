@@ -7,7 +7,6 @@ const binRoot =
   process.env.NODE_ENV === "test" ? "./bins/test.json" : "./bins/bin.json";
 
 router.use(express.json());
-// console.log(process.env.NODE_ENV);
 router.get("/:id", (req, res) => {
   const id = req.params.id;
   // console.log(typeof id);

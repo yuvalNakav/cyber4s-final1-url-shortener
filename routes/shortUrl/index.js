@@ -11,7 +11,6 @@ const binRoot =
 
 router.get("/:id", (req, res) => {
   const id = Number(req.params.id);
-  // console.log(typeof id);
   fs.readFile(binRoot, (err, success) => {
     if (err) {
       console.log(err);
@@ -25,7 +24,7 @@ router.get("/:id", (req, res) => {
             if (err) {
               console.log("there was en error " + err);
             } else {
-              // console.log("page redirected successfully!");
+              console.log("page redirected successfully!");
               res.send({ error: "No short URL found for the given input" });
             }
           }
@@ -74,7 +73,6 @@ router.post("/new", checkInBin, checkInWeb, (req, res) => {
       });
     }
   });
-  console.log(res.statusMessage);
 });
 function checkInBin(req, res, next) {
   const { body } = req;
@@ -100,12 +98,11 @@ function checkInBin(req, res, next) {
 function checkInWeb(req, res, next) {
   const { body } = req;
   const url = body.url;
-  doda = fetch(url, {
+  let nodeFetch = fetch(url, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
     .then((res) => {
-      console.log(res.status);
       if (!res.ok) {
         res.send({ error: "Invalid Hostname" });
       } else {
@@ -114,7 +111,6 @@ function checkInWeb(req, res, next) {
     })
     .catch((err) => {
       console.log("this url does not exist");
-      console.log();
       res.send({ error: "Invalid Hostname" });
     });
 }
