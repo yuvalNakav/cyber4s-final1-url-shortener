@@ -5,18 +5,20 @@ const path = require("path");
 
 router.use(express.json());
 
-router.get("/", async (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, "../../views") });
-});
-// router.get("/: url")
-
-router.post("/", (req, res) => {
-  const { body } = req;
-  console.log(body);
-  fs.writeFile(`shorturl/.json`, JSON.stringify(body, null, 4), (err) => {
-    if (err) throw err;
-    console.log(err + "ima shch ali");
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  // console.log(typeof id);
+  fs.readFile(`bins/bin.json`, (err, success) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const binArr = JSON.parse(success);
+      if (binArr[id - 1] === undefined) {
+        res.send({ error: "No short URL found for the given input" });
+      } else {
+        res.send(binArr[id - 1]);
+      }
+    }
   });
-  // res.send("imashcha zona rezach");
 });
 module.exports = router;

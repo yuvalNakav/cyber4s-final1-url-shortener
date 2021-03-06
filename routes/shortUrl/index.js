@@ -1,5 +1,3 @@
-const { Console } = require("console");
-const { response } = require("express");
 const express = require("express");
 const fs = require("fs");
 const router = express.Router();
@@ -7,10 +5,49 @@ const path = require("path");
 const DataBase = require("../../models/dataBaseObj");
 router.use(express.json());
 const fetch = require("node-fetch");
-const { resolve } = require("path");
 
-router.get("/", (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, "../../views") });
+// router.get("/", (req, res) => {
+//   res.sendFile("index.html", { root: path.join(__dirname, "../../views") });
+// });
+router.get("/:id", (req, res) => {
+  const id = Number(req.params.id);
+  // console.log(typeof id);
+  fs.readFile(`bins/bin.json`, (err, success) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const binArr = JSON.parse(success);
+      console.log(binArr[id - 1]);
+      if (binArr[id - 1] === undefined) {
+        fs.writeFile(
+          `bins/bin.json`,
+          JSON.stringify(binArr, null, 4),
+          (err) => {
+            if (err) {
+              console.log("there was en error " + err);
+            } else {
+              // console.log("page redirected successfully!");
+              res.send({ error: "No short URL found for the given input" });
+            }
+          }
+        );
+      } else if (binArr[id - 1].shortUrl === id) {
+        binArr[id - 1].redirectCount++;
+        fs.writeFile(
+          `bins/bin.json`,
+          JSON.stringify(binArr, null, 4),
+          (err) => {
+            if (err) {
+              console.log("there was en error " + err);
+            } else {
+              console.log("page redirected successfully!");
+            }
+          }
+        );
+        res.redirect(binArr[id - 1].originalUrl);
+      }
+    }
+  });
 });
 
 router.post("/new", checkInBin, checkInWeb, (req, res) => {
