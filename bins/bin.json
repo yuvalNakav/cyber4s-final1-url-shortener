@@ -31,7 +31,7 @@
     },
     {
         "creationDate": 1614974598744,
-        "redirectCount": 0,
+        "redirectCount": 1,
         "originalUrl": "https://amazon.com",
         "shortUrl": 6
     },
@@ -58,5 +58,23 @@
         "redirectCount": 0,
         "originalUrl": "https://url-shortener-microservice.freecodecamp.rocks/api/shorturl/new",
         "shortUrl": 10
+    },
+    {
+        "creationDate": 1615042864416,
+        "redirectCount": 0,
+        "originalUrl": "https://www.w3schools.com/js/js_switch.asp",
+        "shortUrl": 11
+    },
+    {
+        "creationDate": 1615054538142,
+        "redirectCount": 0,
+        "originalUrl": "https://www.youtube.com/watch?v=txGL-Ld9zD8&ab_channel=dcode",
+        "shortUrl": 12
+    },
+    {
+        "creationDate": 1615055277881,
+        "redirectCount": 0,
+        "originalUrl": "https://www.npmjs.com/package/dotenv",
+        "shortUrl": 13
     }
 ]

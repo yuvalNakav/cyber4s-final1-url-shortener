@@ -2,13 +2,16 @@ const express = require("express");
 const fs = require("fs");
 const router = express.Router();
 const path = require("path");
+require("dotenv").config();
+const binRoot =
+  process.env.NODE_ENV === "test" ? "./bins/test.json" : "./bins/bin.json";
 
 router.use(express.json());
-
+// console.log(process.env.NODE_ENV);
 router.get("/:id", (req, res) => {
   const id = req.params.id;
   // console.log(typeof id);
-  fs.readFile(`bins/bin.json`, (err, success) => {
+  fs.readFile(binRoot, (err, success) => {
     if (err) {
       console.log(err);
     } else {

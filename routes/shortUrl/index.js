@@ -5,19 +5,18 @@ const path = require("path");
 const DataBase = require("../../models/dataBaseObj");
 router.use(express.json());
 const fetch = require("node-fetch");
+require("dotenv").config();
+const binRoot =
+  process.env.NODE_ENV === "test" ? "./bins/test.json" : "./bins/bin.json";
 
-// router.get("/", (req, res) => {
-//   res.sendFile("index.html", { root: path.join(__dirname, "../../views") });
-// });
 router.get("/:id", (req, res) => {
   const id = Number(req.params.id);
   // console.log(typeof id);
-  fs.readFile(`bins/bin.json`, (err, success) => {
+  fs.readFile(binRoot, (err, success) => {
     if (err) {
       console.log(err);
     } else {
       const binArr = JSON.parse(success);
-      console.log(binArr[id - 1]);
       if (binArr[id - 1] === undefined) {
         fs.writeFile(
           `bins/bin.json`,
@@ -53,14 +52,14 @@ router.get("/:id", (req, res) => {
 router.post("/new", checkInBin, checkInWeb, (req, res) => {
   const { body } = req;
   const url = body.url;
-  fs.readFile(`bins/bin.json`, (err, success) => {
+  fs.readFile(binRoot, (err, success) => {
     if (err) {
       console.log(err);
     } else {
       const binArr = JSON.parse(success);
       const urlObject = new DataBase(url, binArr.length + 1);
       binArr.push(urlObject);
-      fs.writeFile(`bins/bin.json`, JSON.stringify(binArr, null, 4), (err) => {
+      fs.writeFile(binRoot, JSON.stringify(binArr, null, 4), (err) => {
         if (err) {
           console.log("there was en error " + err);
         } else {
@@ -75,11 +74,12 @@ router.post("/new", checkInBin, checkInWeb, (req, res) => {
       });
     }
   });
+  console.log(res.statusMessage);
 });
 function checkInBin(req, res, next) {
   const { body } = req;
   const url = body.url;
-  fs.readFile(`bins/bin.json`, (err, success) => {
+  fs.readFile(binRoot, (err, success) => {
     if (err) {
       console.log(err);
     } else {
@@ -90,7 +90,7 @@ function checkInBin(req, res, next) {
             original_url: bin.originalUrl,
             short_url: bin.shortUrl,
           });
-          fs.writeFileSync(`bins/bin.json`, binArr);
+          fs.writeFileSync(binRoot, binArr);
         }
       }
     }
@@ -100,7 +100,7 @@ function checkInBin(req, res, next) {
 function checkInWeb(req, res, next) {
   const { body } = req;
   const url = body.url;
-  res = fetch(url, {
+  doda = fetch(url, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -113,7 +113,8 @@ function checkInWeb(req, res, next) {
       }
     })
     .catch((err) => {
-      console.log("there was an error", err);
+      console.log("this url does not exist");
+      console.log();
       res.send({ error: "Invalid Hostname" });
     });
 }
