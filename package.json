@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "appTest": "jest __tests__/app.test.js --verbose",
-    "statisticTest": "jest __tests__/statistic.test.js --verbose"
+    "appTest": "jest __tests__/app.test.js --verbose"
   },
   "dependencies": {
     "axios": "^0.21.1",
