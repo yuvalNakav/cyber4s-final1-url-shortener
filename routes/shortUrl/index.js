@@ -89,6 +89,7 @@ function checkInBin(req, res, next) {
             short_url: bin.shortUrl,
           });
           fs.writeFileSync(binRoot, binArr);
+          console.log(binArr);
         }
       }
     }
