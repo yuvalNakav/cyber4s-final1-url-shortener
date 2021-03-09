@@ -2,9 +2,10 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   color: #222;
-  background-color: #fff;
+  background-image: radial-gradient(circle, yellow, orange, red);
   text-align: center;
   line-height: 1.4em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 main {
@@ -16,7 +17,15 @@ h3 {
   margin-top: 30px;
 }
 
-
+legend {
+  background-color: #a92525;
+  color: antiquewhite;
+  border-radius: 0.3rem;
+}
+fieldset {
+  border-radius: 0.5rem;
+  border: blanchedalmond 1px solid;
+}
 
 .user-stories li {
   margin-bottom: 1em;
@@ -34,13 +43,21 @@ form {
 
 label {
   margin-right: 10px;
+  font-weight: 600;
 }
 
 input {
   padding: 5px;
+  color: antiquewhite;
+  background-color: #a92525;
+  border: solid blanchedalmond 2px;
+  border-radius: 0.3rem;
 }
 
-input[type='text'] {
+input[type="url"] {
   width: 220px;
   text-align: center;
+  background-color: #a92525;
+  color: antiquewhite;
+  font-weight: 600;
 }
